@@ -176,7 +176,7 @@ protocols:
     fb_image: "/assets/iconfinder_github_683980.svg"
     fb_image_width: 612
     fb_image_height: 605
-    fb_image_type: "image/png"
+    fb_image_type: "/assets/iconfinder_github_683980.svg"
 
     twitter_image: "/assets/iconfinder_github_683980.svg"
 
