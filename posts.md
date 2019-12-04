@@ -23,6 +23,7 @@ main_nav: true
     </li>
   {% endfor %}
   </ul>
+  {% if page.comments %} <div id="post-disqus" class="container"> {% include disqus.html %} </div> {% endif %}
   {% if forloop.last == false %}<hr>{% endif %}
 {% endfor %}
 <br>
