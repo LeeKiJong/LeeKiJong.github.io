@@ -47,8 +47,8 @@ jekyll-archives:
     tag: '/tag/:name/'
 
 # Disqus comments
-disqus_shortname: 'LeeKiJong.github.io'
-discus-identifier: rl00822@gmail.com
+disqus_shortname: 'LeeKiJong'
+discus-identifier: LeeKiJong
 comments: true
 
 # Google analytics
