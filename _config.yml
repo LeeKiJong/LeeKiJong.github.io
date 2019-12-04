@@ -47,9 +47,7 @@ jekyll-archives:
     tag: '/tag/:name/'
 
 # Disqus comments
-disqus_shortname: 'LeeKiJong'
-discus-identifier: LeeKiJong
-comments: true
+disqus_shortname: leekijong
 
 # Google analytics
 # ga_tracking_id: "UA-XXXX-1"
