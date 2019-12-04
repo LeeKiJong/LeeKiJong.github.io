@@ -34,6 +34,11 @@ comments: true
 
 <article class="post-content">
   {{ content }}
+		{% if page.comments %}
+<div id="post-disqus" class="container">
+{% include disqus.html %}
+</div>
+{% endif %}
 </article>
 
 {% if site.jekyll-archives %}
