@@ -98,11 +98,7 @@ s.setAttribute('data-timestamp', +new Date());
 {% endif %}
 	
 	
-{% if page.comments %}
-<div id="post-disqus" class="container">
-{% include disqus.html %}
-</div>
-{% endif %}
+
 	
 	
 	
@@ -124,6 +120,12 @@ s.setAttribute('data-timestamp', +new Date());
   <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 </section>
 {% endunless %}
+{% endif %}
+	
+	{% if page.comments %}
+<div id="post-disqus" class="container">
+{% include disqus.html %}
+</div>
 {% endif %}
 
 </div>
