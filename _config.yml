@@ -48,6 +48,7 @@ jekyll-archives:
 
 # Disqus comments
 disqus_shortname: 'LeeKiJong.github.io'
+discus-identifier: rl00822@gmail.com
 
 # Google analytics
 # ga_tracking_id: "UA-XXXX-1"
