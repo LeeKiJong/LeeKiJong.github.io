@@ -2,7 +2,7 @@
 layout: post
 title:  "쉽고 빠른 지킬 깃허브 블로그 만드는 법 1"
 date:   2019-12-05
-author: LeeKiJOng
+author: LeeKiJong
 categories: etc
 tags: 깃허브 블로그 jekyll 지킬 
 ---
@@ -44,7 +44,7 @@ LeeKiJong.github.io
 그 후 config.yml 파일을 눌러서 들어간 후  
 ![url](https://user-images.githubusercontent.com/52438368/70203358-f5b78b00-175f-11ea-9c78-cc58fcda7bc9.PNG)  
 title: 은 적고 싶은 제목  
-email: 은 이메일을 적으시고
+email: 은 이메일을 적으시고  
 url: 은 무조건 자기이름.github.io를 적어주세요. 즉, 방금 적었던 리포지토리 이름이죠.  
 예를 들어,  
 url: http://LeeKiJong.github.io  
