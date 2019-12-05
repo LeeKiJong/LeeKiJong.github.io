@@ -40,8 +40,17 @@ tags: 깃허브 블로그 jekyll 지킬
 LeeKiJong.github.io  
 가 되겠죠. 이름을 쓰셨으면 Rename을 눌러주세요.  
 리포지토리 이름이 변경되었으면 다시 파일 목록으로 돌아가주세요.  
-![config](https://user-images.githubusercontent.com/52438368/70198977-d155b180-1753-11ea-866a-9c16a679c4f9.PNG)  
-그 후 config.yml 파일을 눌러서 들어간 후
+![config](https://user-images.githubusercontent.com/52438368/70203355-f3553100-175f-11ea-8ad1-9c1fa5270436.PNG) 
+그 후 config.yml 파일을 눌러서 들어간 후  
+![url](https://user-images.githubusercontent.com/52438368/70203358-f5b78b00-175f-11ea-9c78-cc58fcda7bc9.PNG)  
+title: 은 적고 싶은 제목  
+email: 은 이메일을 적으시고
+url: 은 무조건 자기이름.github.io를 적어주세요. 즉, 방금 적었던 리포지토리 이름이죠.  
+예를 들어,  
+url: http://LeeKiJong.github.io  
+로 적으시면 됩니다.  
+<hr>
+여기까지가 기본 블로그 설정입니다. 여기까지 하시고 인터넷 주소에 리포지토리 이름을 치면 블로그가 나올 것입니다. 그러면 성공입니다. 다음 세부 설정은 다음 포스트에서 설명 드리겠습니다.
 
 
 
