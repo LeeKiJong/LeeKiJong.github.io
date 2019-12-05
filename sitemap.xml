@@ -5,8 +5,6 @@
     {% for post in site.posts %}
     <url>
         <loc>{{ site.url }}{{ post.url | remove: 'index.html' }}</loc>
-         <url>
-      <loc>{{ site.url }}{{ post.url }}</loc>
 
       {% if post.lastmod == null %}
         <lastmod>{{ post.date | date_to_xmlschema }}</lastmod>
@@ -25,8 +23,6 @@
       {% else %}
         <priority>{{ post.sitemap.priority }}</priority>
       {% endif %}
-
-    </url>
     </url>
     {% endfor %}
 
