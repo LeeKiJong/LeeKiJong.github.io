@@ -53,9 +53,6 @@ disqus_shortname: leekijong
 # ga_tracking_id: "UA-XXXX-1"
 
 # Category descriptions (for archive pages)
-descriptions:
-  - cat: Java
-    desc: "자바 공부하기에 유용한 자료들입니다."
 
 # Social 
 # and sharing options
