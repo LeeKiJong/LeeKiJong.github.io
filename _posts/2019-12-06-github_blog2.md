@@ -35,11 +35,9 @@ Post.html에 아래 1번과 같이 생긴 코드를 복사하여 맨 위에 붙�
 다시 Config.yml로 가시면 disqus_shortname: .... 이런 식으로 써져있는 코드가 있을거에요. 여기에 아까 discuss에서  
 입력했던 Website name을 적어주시면 됩니다.  
   
-<fieldset>
 
-       {% if site.disqus-shortname %}{% include disqus.html %}{% endif %} 
+{% if site.disqus-shortname %}{% include disqus.html %}{% endif %} 
 
-</fieldset> 
 이 코드도 Post.html에 넣어주시면됩니다. 그러면 끝이에요.  
 여기까지 하면 Post.html 레이아웃을 사용한 게시글 아래 부분에 댓글 창이 생길거에요.  
 다음 포스트는 구글, 네이버, 다음에 검색되게 하는 방법을 소개드리겠습니다.
