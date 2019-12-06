@@ -1,9 +1,11 @@
+---
 layout: post
 title:  "쉽고 빠른 지킬 깃허브 블로그 만드는 법 2"
 date:   2019-12-06
 author: LeeKiJong
 categories: etc
 tags: 깃허브 블로그 jekyll 지킬 
+---
 
 오늘은 지킬로 깃허브 블로그 만들기 2편입니다.  
 이번에는 discuss를 이용한 댓글 만들기를 하겠습니다. 천천히 잘 따라와보세요. 별로 어렵지 않습니다.  
