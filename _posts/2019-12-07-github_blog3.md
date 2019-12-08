@@ -28,7 +28,7 @@ feed.xml
  
 robots.txt  
 
-[여기 코드를 복사해서 쓰세요!]([https://github.com/LeeKiJong/LeeKiJong.github.io/blob/master/robots.txt)
+[여기 코드를 복사해서 쓰세요!](https://github.com/LeeKiJong/LeeKiJong.github.io/blob/master/robots.txt)
 
 Sitemap: http://***여기에는 블로그 주소를 써주세요.***/sitemap.xml
 
