@@ -20,9 +20,7 @@ sitemap.xml
 아마 테마를 제대로 다운로드 받았다면 제작자분이 sitemap.xml을 만들어 놓으셨을 거예요.  
 그래도 혹시 모르니 적어두겠습니다. 그대로 복사해서 만들어주세요.  
 
-<pre><code>
-
-      ---
+    ---
      layout: null
       ---
     <?xml version="1.0" encoding="UTF-8"?>
@@ -52,7 +50,6 @@ sitemap.xml
       {% endfor %}
     </urlset>
 
-</code></pre>
  
 feed.xml  
 
