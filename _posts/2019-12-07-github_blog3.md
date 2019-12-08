@@ -20,7 +20,7 @@ sitemap.xml
 아마 테마를 제대로 다운로드 받았다면 제작자분이 sitemap.xml을 만들어 놓으셨을 거예요.  
 그래도 혹시 모르니 적어두겠습니다. 그대로 복사해서 만들어주세요.  
 
-```xml
+<code>
      ---
     layout: null
      ---
@@ -51,11 +51,11 @@ sitemap.xml
       {% endfor %}
     </urlset>
 
-```
+</code>
  
 feed.xml  
 
-```xml
+<code>
     ---
     layout: null
     ---
@@ -86,18 +86,18 @@ feed.xml
     {% endfor %}
         </channel>
     </rss>
-```
+</code>
  
 robots.txt  
 
-```xml
+<code>
   
     User-agent: *
     Allow: /
 
     Sitemap: http://***여기에는 블로그 주소를 써주세요.***/sitemap.xml
 
-```
+</code>
  
 모두 작성하셨으면 한 번 주소에 '자신 블로그 주소/sitemap.xml' 페이지가 정상적으로 나오는 지 확인해주세요.
 정상적으로 나온다면 다시 Google search Console로 가서  
