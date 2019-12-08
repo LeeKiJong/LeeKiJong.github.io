@@ -19,86 +19,18 @@ tags: 깃허브 블로그 jekyll 지킬
 sitemap.xml  
 아마 테마를 제대로 다운로드 받았다면 제작자분이 sitemap.xml을 만들어 놓으셨을 거예요.  
 그래도 혹시 모르니 적어두겠습니다. 그대로 복사해서 만들어주세요.  
-<fieldset>
-  <form>
-    
-     ---
-     layout: null
-     ---
-    <?xml version="1.0" encoding="UTF-8"?>
-    <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9           http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-      {% for post in site.posts %}
-      <url>
-      <loc>{{ site.url }}{{ post.url }}</loc>
-      {% if post.lastmod == null %}
-        <lastmod>{{ post.date | date_to_xmlschema }}</lastmod>
-      {% else %}
-        <lastmod>{{ post.lastmod | date_to_xmlschema }}</lastmod>
-      {% endif %}
-
-      {% if post.sitemap.changefreq == null %}
-        <changefreq>weekly</changefreq>
-      {% else %}
-        <changefreq>{{ post.sitemap.changefreq }}</changefreq>
-      {% endif %}
-
-      {% if post.sitemap.priority == null %}
-          <priority>0.5</priority>
-      {% else %}
-        <priority>{{ post.sitemap.priority }}</priority>
-      {% endif %}
-
-    </url>
-      {% endfor %}
-    </urlset>
- </form>
-</fieldset>
+[https://github.com/LeeKiJong/LeeKiJong.github.io/blob/master/sitemap.xml](여기 코드를 복사해서 쓰세요!)
  
 feed.xml  
 
-<code>
-    ---
-    layout: null
-    ---
-    <?xml version="1.0" encoding="UTF-8"?>
-    <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-     <channel>
-    <title>{{ site.title | xml_escape }}</title>
-    <description>{{ site.description | xml_escape }}</description>
-    <link>{{ site.url }}{{ site.baseurl }}/</link>
-    <atom:link href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" rel="self" type="application/rss+xml"/>
-    <pubDate>{{ site.time | date_to_rfc822 }}</pubDate>
-    <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
-    <generator>Jekyll v{{ jekyll.version }}</generator>
-    {% for post in site.posts limit:30 %}
-      <item>
-        <title>{{ post.title | xml_escape }}</title>
-        <description>{{ post.content | xml_escape }}</description>
-        <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
-        <link>{{ post.url | prepend: site.baseurl | prepend: site.url }}</link>
-        <guid isPermaLink="true">{{ post.url | prepend: site.baseurl | prepend: site.url }}</guid>
-        {% for tag in post.tags %}
-        <category>{{ tag | xml_escape }}</category>
-        {% endfor %}
-        {% for cat in post.categories %}
-        <category>{{ cat | xml_escape }}</category>
-        {% endfor %}
-      </item>
-    {% endfor %}
-        </channel>
-    </rss>
-</code>
+[https://github.com/LeeKiJong/LeeKiJong.github.io/blob/master/feed.xml](여기 코드를 복사해서 쓰세요!)
  
 robots.txt  
 
-<code>
-  
-    User-agent: *
-    Allow: /
+[https://github.com/LeeKiJong/LeeKiJong.github.io/blob/master/robots.txt](여기 코드를 복사해서 쓰세요!)
 
-    Sitemap: http://***여기에는 블로그 주소를 써주세요.***/sitemap.xml
+Sitemap: http://***여기에는 블로그 주소를 써주세요.***/sitemap.xml
 
-</code>
  
 모두 작성하셨으면 한 번 주소에 '자신 블로그 주소/sitemap.xml' 페이지가 정상적으로 나오는 지 확인해주세요.
 정상적으로 나온다면 다시 Google search Console로 가서  
