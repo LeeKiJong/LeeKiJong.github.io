@@ -16,18 +16,19 @@ tags: 깃허브 블로그 jekyll 지킬
 [https://search.google.com/search-console/about](https://search.google.com/search-console/about)  
 우선 Google Search Console로 들어가서 시작하기 버튼을 누르고 로그인을 해주세요.  
 그 다음은 파일 3개를 블로그 리포지토리 최상위(/root)에 만들어줘야 합니다.  
-sitemap.xml  
 아마 테마를 제대로 다운로드 받았다면 제작자분이 sitemap.xml을 만들어 놓으셨을 거예요.  
 그래도 혹시 모르니 적어두겠습니다. 그대로 복사해서 만들어주세요.  
+  
+sitemap.xml  
 [https://github.com/LeeKiJong/LeeKiJong.github.io/blob/master/sitemap.xml](여기 코드를 복사해서 쓰세요!)
  
 feed.xml  
 
-[https://github.com/LeeKiJong/LeeKiJong.github.io/blob/master/feed.xml](여기 코드를 복사해서 쓰세요!)
+[여기 코드를 복사해서 쓰세요!](https://github.com/LeeKiJong/LeeKiJong.github.io/blob/master/feed.xml)
  
 robots.txt  
 
-[https://github.com/LeeKiJong/LeeKiJong.github.io/blob/master/robots.txt](여기 코드를 복사해서 쓰세요!)
+[여기 코드를 복사해서 쓰세요!]([https://github.com/LeeKiJong/LeeKiJong.github.io/blob/master/robots.txt)
 
 Sitemap: http://***여기에는 블로그 주소를 써주세요.***/sitemap.xml
 
