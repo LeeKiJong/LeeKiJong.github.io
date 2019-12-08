@@ -19,9 +19,8 @@ tags: 깃허브 블로그 jekyll 지킬
 sitemap.xml  
 아마 테마를 제대로 다운로드 받았다면 제작자분이 sitemap.xml을 만들어 놓으셨을 거예요.  
 그래도 혹시 모르니 적어두겠습니다. 그대로 복사해서 만들어주세요.  
- ~~~
-<fieldset>
 
+ ~~~
      ---
     layout: null
      ---
@@ -52,13 +51,11 @@ sitemap.xml
       {% endfor %}
     </urlset>
 
-</fieldset>
  ~~~
+ 
 feed.xml  
- ~~~
-<fieldset>
-  
-     
+
+ ~~~ 
     ---
     layout: null
     ---
@@ -89,19 +86,19 @@ feed.xml
     {% endfor %}
         </channel>
     </rss>
-</fieldset>
  ~~~
+ 
 robots.txt  
+
  ~~~
-<fieldset>
   
     User-agent: *
     Allow: /
 
     Sitemap: http://***여기에는 블로그 주소를 써주세요.***/sitemap.xml
-    
-</fieldset>
+
  ~~~
+ 
 모두 작성하셨으면 한 번 주소에 '자신 블로그 주소/sitemap.xml' 페이지가 정상적으로 나오는 지 확인해주세요.
 정상적으로 나온다면 다시 Google search Console로 가서  
 ![url](https://user-images.githubusercontent.com/52438368/70368963-4ca29900-18f5-11ea-9dde-bd7a13e19248.PNG)  
