@@ -20,10 +20,11 @@ sitemap.xml
 아마 테마를 제대로 다운로드 받았다면 제작자분이 sitemap.xml을 만들어 놓으셨을 거예요.  
 그래도 혹시 모르니 적어두겠습니다. 그대로 복사해서 만들어주세요.  
 
-<code>
-     ---
-    layout: null
-     ---
+<pre><code>
+
+      ---
+     layout: null
+      ---
     <?xml version="1.0" encoding="UTF-8"?>
     <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9           http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
       {% for post in site.posts %}
@@ -51,7 +52,7 @@ sitemap.xml
       {% endfor %}
     </urlset>
 
-</code>
+</code></pre>
  
 feed.xml  
 
