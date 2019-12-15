@@ -1,0 +1,102 @@
+---
+layout: post
+title:  "BAEKJOON JAVA 8"
+date:   2019-12-15
+author: LeeKiJong
+categories: Java
+comments : true
+tags: 백준 8단계
+cover:  "/assets/java.jpg"
+---
+
+<h3>목차</h3>
+<ol>
+  <li>정수 N개의 합 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#15596</li>
+  <li>셀프 넘버  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#4673</li>
+  <li>한수  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#1065</li>
+  <li>아스키 코드  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#11654</li>
+  <li>숫자의 합  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#11720</li>
+  <li>알파벳 찾기   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#10809</li>
+  <li>문자열 반복  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#2675</li>
+  <li>단어 공부  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#1157</li>
+  <li>단어의 개수  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#1152</li>
+  <li>상수  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#2908</li>
+  <li>다이얼  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#5622</li>
+  <li>크로아티아 알파벳  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#2941</li>
+  <li>그룹 단어 체커  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#1316</li>
+</ol>
+
+<hr>
+<h2>손익분기점</h2>
+```java
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+
+public class Main {
+
+	public static void main(String[] args){
+		
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out)); 
+
+		try {
+			String S = br.readLine();
+			
+			String []a = S.split(" ");
+			long A = Integer.parseInt(a[0]);
+			long B = Integer.parseInt(a[1]);
+			long C = Integer.parseInt(a[2]);
+			if(B>=C) {
+				bw.write("-1");
+				bw.flush();
+				bw.close();
+				return;
+			}
+			bw.write((A/(C-B)+1) + "");
+			
+			bw.flush();
+			bw.close();
+		} catch(IOException e) {
+			e.printStackTrace();
+		}
+	}	
+}
+```
+
+<hr>
+<h2>손익분기점</h2>
+```java
+```
+
+<hr>
+<h2>손익분기점</h2>
+```java
+```
+
+<hr>
+<h2>손익분기점</h2>
+```java
+```
+
+<hr>
+<h2>손익분기점</h2>
+```java
+```
+
+<hr>
+<h2>손익분기점</h2>
+```java
+```
+
+<hr>
+<h2>손익분기점</h2>
+```java
+```
+
+<hr>
+<h2>손익분기점</h2>
+```java
+```
