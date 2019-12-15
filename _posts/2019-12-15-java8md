@@ -67,22 +67,140 @@ public class Main {
 ```
 
 <hr>
-<h2>손익분기점</h2>
+<h2>설탕 배달</h2>
 ```java
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+
+public class Main {
+
+	public static void main(String[] args){
+		
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out)); 
+
+		try {
+			int N = Integer.parseInt(br.readLine());
+			if(N<3 || N>5000)
+				return;
+			for(int i=0;i*3<=N;i++) {
+				if((N-i*3)%5 == 0) {
+					bw.write(i+ (N-i*3)/5 +"");
+					break;
+				}
+				if(N - i*3 <3) {
+					bw.write("-1");
+					break;
+				}
+					
+			}
+			bw.flush();
+			bw.close();
+		} catch(IOException e) {
+			e.printStackTrace();
+		}
+	}	
+}
 ```
 
 <hr>
-<h2>손익분기점</h2>
+<h2>벌집</h2>
 ```java
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+
+public class Main {
+
+	public static void main(String[] args){
+		
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out)); 
+
+		try {
+			int N = Integer.parseInt(br.readLine());
+			if(N<1 || N>1000000000)
+				return;
+			int i=0, num=1;
+			while(true) {
+				if(num + 6*i>=N) {
+					bw.write((1+i)+"");
+					break;
+				}
+				num = num + 6*i;
+				i++;
+			}
+			
+					
+			bw.flush();
+			bw.close();
+		} catch(IOException e) {
+			e.printStackTrace();
+		}
+	}	
+}
 ```
 
 <hr>
-<h2>손익분기점</h2>
+<h2>분수찾기</h2>
 ```java
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+
+public class Main {
+
+	public static void main(String[] args){
+		
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out)); 
+
+		try {
+			int N = Integer.parseInt(br.readLine());
+			int mo=1, ja=1;
+			boolean sw = false;
+			for(int i=1;i<N;i++)
+			{
+				if(sw) {
+					if(mo==1) {
+						sw=false;
+						ja++;
+					}
+					else {
+						mo--;
+						ja++;
+					}
+				}
+				else{
+					if(ja==1) {
+						sw=true;
+						mo++;
+					}
+					else {
+						ja--;
+						mo++;
+					}
+				}
+			}
+			bw.write(ja + "/" + mo);
+			bw.flush();
+			bw.close();
+		} catch(IOException e) {
+			e.printStackTrace();
+		}
+	}	
+}
 ```
 
 <hr>
-<h2>손익분기점</h2>
+<h2>달팽이는 올라가고 싶다</h2>
 ```java
 ```
 
