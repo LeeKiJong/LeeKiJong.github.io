@@ -5,25 +5,20 @@ date:   2019-12-15
 author: LeeKiJong
 categories: Java
 comments : true
-tags: 백준 8단계
+tags: 백준 8단계 수학
 cover:  "/assets/java.jpg"
 ---
 
 <h3>목차</h3>
 <ol>
-  <li>정수 N개의 합 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#15596</li>
-  <li>셀프 넘버  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#4673</li>
-  <li>한수  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#1065</li>
-  <li>아스키 코드  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#11654</li>
-  <li>숫자의 합  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#11720</li>
-  <li>알파벳 찾기   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#10809</li>
-  <li>문자열 반복  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#2675</li>
-  <li>단어 공부  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#1157</li>
-  <li>단어의 개수  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#1152</li>
-  <li>상수  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#2908</li>
-  <li>다이얼  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#5622</li>
-  <li>크로아티아 알파벳  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#2941</li>
-  <li>그룹 단어 체커  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#1316</li>
+  <li>손익분기점 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#1712</li>
+  <li>섩아 배달  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#2839</li>
+  <li>벌집  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#2292</li>
+  <li>분수찾기  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#1193</li>
+  <li>달팽이는 올라가고 싶다  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#2869</li>
+  <li>ACM 호텔   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#10250</li>
+  <li>부녀회장이 될테야  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#2775</li>
+  <li>Fly me to the Alpha Centauri &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#1011</li>
 </ol>
 
 <hr>
@@ -65,7 +60,9 @@ public class Main {
 	}	
 }
 ```
-
+이 문제는 시간 제한이 0.35초이기때문에 반복문을 잘못 썼다간 시간 초과가 될 수 있다.  
+반복문을 쓰는 대신 수학적으로 계산해 반복문 없이도 풀 수 있게 만들어줘야한다.  
+A/(C-B)+1 이라는 공식으로 손익분기점을 넘길 때의 생산 개수를 구할 수 있게 해주었다.
 <hr>
 <h2>설탕 배달</h2>
 ```java
@@ -105,6 +102,8 @@ public class Main {
 	}	
 }
 ```
+이 문제를 비롯한 이 단계의 문제들은 종이에 한 번 씩 써보고 코딩하는 것을 추천한다.  
+반복문을 하나 만들어서 5로 나누어지지 않는 무게에는 3씩 더해가며 5로 나누어질 때까지 반복문을 돌게 해준다.
 
 <hr>
 <h2>벌집</h2>
@@ -145,7 +144,8 @@ public class Main {
 	}	
 }
 ```
-
+벌집 문제도 공식만 알면 쉽게 풀 수 있다.  
+1부터 6*i로 거쳐가야할 칸 수를 세준다.  6, 12, 18... 순으로 벌집이 벌어지기 때문에 6의 배수 씩 더해주다가 N보다 크거나 같다면 1을 더해서 출력하게 해준다.  
 <hr>
 <h2>분수찾기</h2>
 ```java
@@ -198,7 +198,7 @@ public class Main {
 	}	
 }
 ```
-
+이 문제는 방향이 아래로 갈 때, 위로 갈 때를 나누어서 계산해주면 간단한 문제이다.  
 <hr>
 <h2>달팽이는 올라가고 싶다</h2>
 ```java
@@ -234,7 +234,8 @@ public class Main {
 	}	
 }
 ```
-
+달팽이는 도착지에 도착하지 않는 이상은 올라갔다가 내려와야하므로 A-B를 하루 이동 거리로 잡고  
+도착지인 V는 A만큼 빼주고 시작한다.
 <hr>
 <h2>ACM호텔</h2>
 ```java
@@ -280,7 +281,7 @@ public class Main {
 	}	
 }
 ```
-
+이 문제에서는 H가 W보다 중요하기 때문에 H와 N만 사용하여 나머지와 몫을 구해 호실을 구한다.  
 <hr>
 <h2>부녀회장이 될테야</h2>
 ```java
@@ -324,7 +325,9 @@ public class Main {
 	}
 }
 ```
-
+이 문제는 재귀 함수를 사용했다.  
+a층의 b호실이라면 a층의 b-1호실 + a-1층의 b호실을 더한 값이 나온다.  
+이 문제도 공식을 먼저 구해두고 하면 어렵지 않은 문제다.
 <hr>
 <h2>Fly me to the Alpha Centauri</h2>
 ```java
@@ -373,7 +376,8 @@ public class Main {
 		}
 	}
 }
-
 ```
-
+처음과 마지막에는 이동거리가 1로 이동해야 하기 때문에 데칼코마니같은 형식으로 구성을 했다.
+x를 움직이고 x가 y보다 크거나 같다면 모두 이동했기 때문에 종료  
+y를 움직이고 y가 x보다 작거나 같아도 모두 이동했기 때문에 종료라는 조건을 두고 하였다.
 
