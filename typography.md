@@ -151,9 +151,8 @@ JAVA는 다중상속 X 대신에 다중구현(다형성) 가능
 3. 단일상속, 다중구현 - 추상클래스는 단일 상속, 인터페이스는 다중구현 가능  
 
 <h2>디자인 패턴</h2>  
-1. 싱글턴 패턴  
+1. 싱글턴 패턴
 ```java
-
 public class SingletonClass{
   private static SingletonClass SINGLETON_CLASS_INSTANCE = new singletonClass();
   public int i = 10;
@@ -174,7 +173,6 @@ public class SingletonClass{
   }
 }
 ```
-
 <h2>1. JAVA</h2>
 
 JAVA는 네트워크상에서 쓸 수 있도록 미국의 선 마이크로 시스템즈가 개발한 객체 지향 프로그래밍 언어  
