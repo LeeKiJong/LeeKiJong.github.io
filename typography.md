@@ -153,6 +153,7 @@ JAVA는 다중상속 X 대신에 다중구현(다형성) 가능
 <h2>디자인 패턴</h2>  
 1. 싱글턴 패턴  
 ```java
+
 public class SingletonClass{
   private static SingletonClass SINGLETON_CLASS_INSTANCE = new singletonClass();
   public int i = 10;
@@ -409,7 +410,7 @@ Controller - Model과 View를 연결하고 있는 클래스를 대표, Model과 
 
 
 
-<h2>10. Interface, Abstract< h2>
+<h2>10. Interface, Abstract</h2>
 
 Interface  
 
