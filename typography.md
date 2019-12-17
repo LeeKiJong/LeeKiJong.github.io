@@ -1,8 +1,11 @@
 ---
 layout: page
+author: LeeKiJong
 title: Study
+Update: 2019-12-17
 permalink: /Study/
 main_nav: true
+comments : true
 ---
 
 <h2>Static</h2>
@@ -116,6 +119,5 @@ public class SingletonClass{
     this.i = i;
   }
 }
-
 ```
 
