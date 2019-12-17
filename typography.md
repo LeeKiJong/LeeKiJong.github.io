@@ -137,6 +137,7 @@ public class Main {
   }
 }
 ```
+
 배열로 만들어서 사용가능  
 JAVA는 다중상속 X 대신에 다중구현(다형성) 가능  
 
@@ -151,7 +152,8 @@ JAVA는 다중상속 X 대신에 다중구현(다형성) 가능
 3. 단일상속, 다중구현 - 추상클래스는 단일 상속, 인터페이스는 다중구현 가능  
 
 <h2>디자인 패턴</h2>  
-1. 싱글턴 패턴
+1. 싱글턴 패턴  
+
 ```java
 public class SingletonClass{
   private static SingletonClass SINGLETON_CLASS_INSTANCE = new singletonClass();
