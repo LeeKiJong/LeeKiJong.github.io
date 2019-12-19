@@ -176,6 +176,50 @@ public class SingletonClass{
 }
 ```
 
+<h2>API</h2>
+
+사용 이유 : 다른 언어에 비해서 접하기 쉽고, 배우기 쉽다.  
+개발자들이 편리하게 이용할 수 있는 풍부한 클래스들이 많다.
+<h4>String API</h4>
+String은 원래 기초데이터가 아니라 객체데이터지만 쓰는 경우가 많아서 기초데이터처럼 사용.   
+str1.concat(str2): 문자열 연결  
+str1.substring(3): 앞 3문자 자르고 출력  
+str1.length(): 문자열 길이  
+str1.toUpperCase(): 대문자로 만들기  
+str1.toLowerCase(): 소문자로 만들기  
+str1.charAt(3): 3번째 문자 출력  
+str1.indexOf('C'): 특정 문자열의 위치  
+str1.equlas(str2): 문자열 비교  
+str1.trim(): 문자열 공백 제거(문자열 사이 공백은 무시, 문자열 첫 번째, 끝만 제거)  
+str1.replace('a', 'z'):  a를 z로 바꾸기  
+str1.replaceAll('abcd', 'zzzzzz'): 특정 문자열 변경  
+메모리 과소비  
+String클래스의 대안으로 StringBuffer, StringBuilder 등장(StringBuilder가 더 빠르다. 나머지는 동일)  
+```java
+StringBuilder sb = new StringBuilder("abcdefg");
+sb.append("aaaaa"): 문자열 뒤에 붙이기
+sb.insert(3, "AAA"): 3번째 인덱스부터 AAA 삽입
+sb.delete(3, 5): 3번째 부터 5번째 까지 삭제
+sb.deleteCharAt(10): 10번째 자리 삭제
+```
+
+<h4>날짜(Calendar) API</h4>
+```java
+Calendar calendar = Calender.getInstance();
+int year = calendar.get(Calendar.YEAR);
+int month = calendar.get(Calendar.MONTH)+1;
+int day = calendar.get(Calendar.DAY_OF_MONTH);
+int hour = calendar.get(Calendar.HOUR_OF_DAY);
+int minute = calendar.get(Calendar.MINUTE);
+int second = calendar.get(Calendar.SECOND);
+```
+
+<h4>속도 테스트 API</h4>
+```java
+System.currentTimeMillis();
+```
+
+
 <h2>1. JAVA</h2>
 
 JAVA는 네트워크상에서 쓸 수 있도록 미국의 선 마이크로 시스템즈가 개발한 객체 지향 프로그래밍 언어  
@@ -191,6 +235,9 @@ c. 객체 지향 개념의 특징인 캡슐화, 상속, 다형성이 잘 적용�
 d. Garbage Collector를 통한 자동적인 메모리 관리  
 
 e. 멀티쓰레드(Multi-thread)를 지원  
+
+
+
 
 
 
@@ -712,11 +759,16 @@ QUEUE
 
 - 클래스 인스턴스가 하나만 만들어지도록 하고, 그 인스턴스에 대한 전역 접근을 제공한다.
 
+<h2>23. Strategy Pattern(스트레티지 패턴)</h2>
+
+- 알고리즘 군을 정의하고 각각을 캡슐화하여 교환해서 사용할 수 있도록 만든다.  
+스트레티지를 활용하면 알고리즘을 사용하는 클라이언트와는 독립적으로 알고리즘을 변경할 수 있다.  
+어떤 객체를 만들 때 객체가 가지는 기능들이 다양하게 존재한다. 이러한 기능들을 추상화 하여 언제든지 적용할 수 있게 만드는 것.  
+기능을 부품화.
 
 
 
-
-<h2>23. Database에서 Index란?</h2>
+<h2>24. Database에서 Index란?</h2>
 
 인덱스는 데이터베이스 분야에 있어서 테이블에 대한 동작의 속도를 높여주는 자료 구조를 일컫는다.  
 
