@@ -7,7 +7,52 @@ permalink: /Study/
 main_nav: true
 comments : true
 ---
+<h2>시간복잡도</h2>
+<h4버블 정렬</h4>
+시간복잡도: O(n^2)
+```java
+ static void swap(int[] arry, int idx1, int idx2) {
+        int tmp = arry[idx1];
+        arry[idx1] = arry[idx2];
+        arry[idx2] = tmp;
+    }
 
+    static void bublleSort(int[] arry, int n) {
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = n - 1; j > i; j--)
+                if (arry[j - 1] > arry[j]) {
+                    swap(arry, j - 1, j);
+                }
+        }
+    }
+```
+<h4>선택 정렬</h4>
+시간복잡도: O(n^2)
+```java
+static void selectionSort(int[] array, int n) {
+        for (int i = 0; i < n - 1; i++) {
+            int min = i;
+            for (int j = i + 1; j < n; j++) {
+                if (array[j] < array[min])
+                    min = j;
+                swap(array, i, min);
+            }
+        }
+    }
+```
+<h4>삽입 정렬</h4>
+시간복잡도: O(n^2), 최선 O(n)
+```java
+static void insertionSort(int[] array, int n) {
+    for (int i = 1; i < n; i++) {
+        int j;
+        int tmp = array[i];
+        for (j = i; j > 0 && array[j - 1] > tmp; j--)
+            array[j] = array[j - 1];
+        array[j] = tmp;
+    }
+}
+```
 <h2>ArrayList, Vector</h2>
 ```java
 int []array = {1, 2, 3};
