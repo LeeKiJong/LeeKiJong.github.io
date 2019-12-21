@@ -9,7 +9,8 @@ comments : true
 ---
 <h2>시간복잡도</h2>
 <h4>버블 정렬</h4>
-시간복잡도: O(n^2)
+시간복잡도: O(n^2)  
+제일 안좋다.
 ```java
  static void swap(int[] arry, int idx1, int idx2) {
         int tmp = arry[idx1];
@@ -53,6 +54,42 @@ static void insertionSort(int[] array, int n) {
     }
 }
 ```
+
+<h4>퀵 정렬</h4>
+시간복잡도: O(nlogn), 최선 O(n^2), 최악 O(n^2)
+```java
+void quick_sort(int list[], int left, int right){
+  if(left<right)
+  {
+    int q  = partition(list, left, right);
+    quick_sort(list, left, q-1);
+    quick_sort(list, q+1, right);
+  }
+}
+
+int partition(int list[], int left, right){
+  int pivot, temp;
+  int low, high;
+  low = left;
+  high = right+1;
+  pivot = list[left];
+  do{
+    do
+    {
+      low++;
+    } while(low <=right && list[low] < pivot);
+    do
+    {
+      high--;
+    } while(high >= left && list[high] > pivot);
+    if(low<high)
+      swap(list[low], list[high]);
+   } while(low<high);
+   swap(list[left], list[high]);
+   return high;
+]
+```
+
 <h2>ArrayList, Vector</h2>
 ```java
 int []array = {1, 2, 3};
