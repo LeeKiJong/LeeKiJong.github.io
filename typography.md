@@ -8,7 +8,7 @@ main_nav: true
 comments : true
 ---
 <h2>시간복잡도</h2>
-<h4버블 정렬</h4>
+<h4>버블 정렬</h4>
 시간복잡도: O(n^2)
 ```java
  static void swap(int[] arry, int idx1, int idx2) {
