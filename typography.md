@@ -301,6 +301,68 @@ int second = calendar.get(Calendar.SECOND);
 System.currentTimeMillis();
 ```
 
+<h4>Random 클래스</h4>
+요즘은 Random클래스를 많이 이용한다.
+```java
+double d = Math.random();
+```
+```java
+Random random = new Random();
+random.nextInt(100);
+```
+
+<h4>Wrapper 클래스</h4>
+기초데이터를 객체데이터로 변화시키는 클래스
+```java
+Integer integer = new Integer(10);
+int i = integer.intValue();
+```
+
+<h4>Timer 클래스</h4>
+```java
+Timer timer = new timer(ture);
+TimerTask t1 = new ExTimerTask1();
+TimerTask t2 = new ExTimerTask2();
+
+timer.schedule(t1, 2000)  //2초후 실행
+timer.schedule(t2, 10000) //10초후 실행
+
+Thread.sleep(11000);
+```
+```java
+public class ExTimerTask1 extends TimerTask{
+  public void run(){
+    System.out.println("Task1의 작업 실행");
+  }
+}
+```
+<h4>StringTokenizer 클래스</h4>
+문자열 나눌 때 중요
+
+<h4>예외 처리</h4>
+```java
+try{
+
+} catch(ArrayIndexOutOfBoundsException a){
+
+} catch(NumberFormatException n){
+
+} finally{
+  System.out.println("finally는 무조건 실행된다.");
+}
+```
+<h4>컬렉션(Collections)</h4>
+컬렉션이란, 우리말로 쉽게 말해서 자료구조이다. 더 쉽게 말하면 배열.  
+
+<h2>HashMap</h2>
+```java
+HashMap<Integer, String> hashmap = new HashMap<Integer, String>();
+hashmap.put(0, "str0");
+hashmap.get(2);
+```
+
+
+
 
 <h2>1. JAVA</h2>
 
