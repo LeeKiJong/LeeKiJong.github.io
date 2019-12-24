@@ -7,6 +7,101 @@ permalink: /Study/
 main_nav: true
 comments : true
 ---
+<h2>스레드(멀티스레드)</h2>
+하나의 프로세스에서 다시 여러 가지 일을 하는 것.  
+Ex) 채팅 프로그램에서 파일 전송과 채팅이 동시에 되는 것.  
+<h4>Runnable 인터페이스 구현을 통한 Thread</h4>
+```java
+ThreadTest threadTest = new ThreadTest();
+Thread thread = new Thread(threadTest, "A")
+thread.start();
+```
+```java
+public class ThreadTest implements Runnable{
+    public void run(){
+      ....
+    }
+}
+```
+<h4>Thread 클래스 상속을 통한 Thread</h4>
+```java
+ThreadTest threadTest = new ThreadTest();
+threadTest.setName("A")
+threadTest.start();
+```
+```java
+public class ThreadTest extends Thread{
+    public void run(){
+      ....
+    }
+}
+```
+
+<h4>멀티 쓰레드, 스레드2, 객체1</h4>
+```java
+ThreadTest threadTest = new ThreadTest();
+Thread thread0 = new Thread(threadTest, "A")
+Thread thread1 = new Thread(threadTest, "B")
+thread0.start();
+thread1.start();
+```
+```java
+public class ThreadTest implements Runnable{
+    public void run(){
+      if(Thread.currentThread().getName().equals("A"))
+        //조건 만드는 법
+    }
+}
+```
+
+<h4>멀티 쓰레드, 스레드2, 객체2</h4>
+```java
+ThreadTest threadTest0 = new ThreadTest();
+ThreadTest threadTest1 = new ThreadTest();
+Thread thread0 = new Thread(threadTest, "A")
+Thread thread1 = new Thread(threadTest, "B")
+thread0.start();
+thread1.start();
+```
+```java
+public class ThreadTest implements Runnable{
+    public void run(){
+      if(Thread.currentThread().getName().equals("A"))
+        //조건 만드는 법
+    }
+}
+```
+<h4>synchronized</h4>
+동기화  
+스레드3, 객체1 형태로 했을 때 변수에 같이 접근 하기 때문에 인스턴스 값이 변경될 위험.  
+해결법  
+```java
+public void run(){ // XXXXX
+public synchronized void run(){ // XXXXX
+```
+<h2>JAVA 입출력</h2>
+예외 처리문 필요
+<h4>파일 출력</h4>
+```java
+InputStream is = new FileInputStream("경로"); //경로 쓸 때 특수문자는 앞에 한번 더 써주기 ex) \\
+is.read(); //1byte씩 읽기
+is.read(byte[]); //Byte[]씩 읽기
+```
+
+<h4>파일 입력</h4>
+```java
+OutputStream os = new FileOutputStream("경로"); //경로 쓸 때 특수문자는 앞에 한번 더 써주기 ex) \\
+String str = "안녕하세요";
+byte[] bs = str.getBytes();
+os.write(bs);
+```
+
+<h4>파일 입출력</h4>
+![1](https://user-images.githubusercontent.com/52438368/71395377-0a00f080-2659-11ea-91d3-3e41672c4d60.PNG)
+![2](https://user-images.githubusercontent.com/52438368/71395378-0bcab400-2659-11ea-81b8-f6d0d0d42061.PNG)
+<h4>DataInputStream, DataOutputStream</h4>
+![3](https://user-images.githubusercontent.com/52438368/71395472-66fca680-2659-11ea-8891-8049ef4a258c.PNG)
+
 <h2>깊이 우선 탐색</h2>
 인접 리스트로 표현된 그래프: O(N+E)  
 인접 행렬로 표현된 그래프: O(N^2)  
@@ -366,6 +461,252 @@ HashMap<Integer, String> hashmap = new HashMap<Integer, String>();
 hashmap.put(0, "str0");
 hashmap.get(2);
 ```
+
+<h2>JAVA GUI</h2>
+AWT 발전한 게 Swing
+![4](https://user-images.githubusercontent.com/52438368/71397451-f3f72e00-2660-11ea-8a9b-4331031cd942.PNG)
+<h4>버튼 만들기</h4>
+```java
+MakeBtn btn = new MakeBtn();
+btn.setSize(new Dimension(200, 200));
+btn.setVisible(true);
+try{
+  Thread.sleep(2000);
+] catch(Exception e){}
+
+btn.setVisible(false);
+btn.dispose();   //자원 해제
+```
+
+```java
+public class MakeBtn extends Frame{
+  public MakeBtn(){
+    Button btn = new Button("Button");
+    add(btn);
+  }
+}
+```
+
+<h4>AWT(Frame, Panel, List, Components, Event)</h4>
+```java
+MakeFrame makeFrame = new MakeFrame();
+makeFrame.setSize(new Dimension(500, 500));
+makeFrame.setVisible(true);
+```
+
+```java
+public class MakeFrame extends Frame implements ActionListener{
+  private List list;
+  private Panel panel;
+  private TextField textField;
+  private Button okBtn;
+  private Button exitBtn;
+  public MakeFrame(){
+    list = new List();
+    panel = new Panel();
+    textField = new TextField(20);
+    okBtn = new Button("OK");
+    exitBtn = new Button("EXIT");
+    
+    setLayout(new BorderLayout());
+    add(panel, BorderLayout.NORTH);
+    add(list.BorderLayout.CENTER);
+    
+    panel.add(new Label("write"));
+    panel.add(textField);
+    panel.add(okBtn);
+    panel.add(exitBtn);
+    
+    okBtn.addActionListener(this);
+    exitBtn.addActionListener(this);
+    
+    addWindowListener(new WindowAdapter(){
+      @Override
+      public void windowClosing(WindowEvent e){
+        setVisible(false);
+        dispose();
+        System.exit(0);
+      }
+    });
+  }
+  
+  @Override
+  public void actionPerformed(ActionEvent e){
+    if(e.getSource() == okBtn){
+      list.add(textField.getText());
+    } else if(e.getSource() == exitBtn){
+      setVisible(false);
+        dispose();
+        System.exit(0);
+    }
+  }
+}
+```
+
+<h4>SWING</h4>
+```java
+MakeComp makeComp = new MakeComp();
+makeComp.pack();
+makeComp.setVisible(true);
+```
+
+```java
+public class MakeComp extends JFrame implements ActionListener{
+  JPanel jpanel;
+  JLabel jLabel;
+  JButton jButton;
+  JButton jButtonExit;
+  JTextField jTextField;
+  JComboBow<String> jComboBox;
+  JCheckBox jCheckBox;
+  String[] items = {"A", "B", "C"};
+  JLabel jLabelBlank;
+  
+  public MakeComp(){
+    this.setDefaultCloseOperation(Frame.EXIT_ON_CLOSE);
+  
+    jPanel = (JPanel)getContentPane();
+    jPanel.setLayout(new FlowLayout());
+    jLabel = new JLabel("Label");
+    jButton = new JBitton("Button");
+    jTextField = new JTextField(20);
+    jComboBox = new JComboBox<String>(items);
+    jCheckBox = new JCheckBox("CheckBox");
+    jLabelBlank = new JLabel();
+    jButtonExit = new JButton("Exit");
+    
+    jPanel.add(jLabel);
+    jPanel.add(jButton);
+    jPanel.add(jTextField);
+    jPanel.add(jComboBox);
+    jPanel.add(jCheckBox);
+    jPanel.add(jLabelBlank);
+    jPanel.add(jButtonExit);
+    
+    jLabel.setPreferredSize(new Dimension(50, 50));
+    jButton.setPreferredSize(new Dimension(100, 50));;
+    jTextField.setPreferredSize(new Dimension(300, 50));
+    jComboBox.setPreferredSize(new Dimension(50, 50));
+    jCheckBox.setPreferredSize(new Dimension(100, 50));
+    jLabelBlank.setPreferredSize(new Dimension(200, 50));
+    jButtonExit.setPreferredSize(new Dimension(100, 50));
+    
+    jButton.addActionListener(this);
+    jButtonExit.addActionListener(this);
+    
+  }
+  
+  @Override
+  public void actionPerformed(ActionEvent e){
+    if(e.getSource() == jButton){
+      jLabelBlank.setText(jTextField.getText());
+    } else if(e.getSource() == jButtonExit){
+      setVisible(false);
+        dispose();
+        System.exit(0);
+    }
+  }
+}
+```
+<h2>자바 네트워크</h2>
+<h4>InetAddress 클래스</h4>
+```java
+InetAddress inetAddress = InetAddress.getByName(scanner.next());
+System.out.println(inetAddress.getHostName());
+System.out.println(inetAddress.getHostAddress());
+```
+
+<h4>URLConnection</h4>
+URL 클래스: DNS를 통한 IP정보를 이용하여, URL객체를 만든 후 네트워크 접속 및 URL정보를 얻어 옵니다.  
+URLConnection 클래스: 추상클래스로 URL객체로부터 생성 됩니다. URL클래스의 openConnection()메소드 이용.  
+```java
+String code = null;
+Scanner scanner = new Scanner(System.in);
+String address = scanner.next();
+
+try{
+  URL url = new URL(address);
+  URLConnection con = url.openConnection();
+  BufferedReader webData = new BufferedReader(new InputStreamReader(con.getInputStream()));
+  FileWriter fw = new FileWriter("C:\\javalec\\workspace\\file.html", false);
+  
+  while((code = webData.readLine()) != null){
+    fw.write(code);
+  }
+  fw.close();
+  webData.close();
+  
+} catch(Exception e){}
+```
+<h4>Socket</h4>
+: 네트워크 상에서 서로 다른 호스트 사이의 통신을 위한 수단.  
+1) Server에서 ServerSocket을 만들고, 클라이언트의 요청을 기다림.  
+2) Client에서 Socket을 만들고, I/O Stream을 만들어 Server로 요청을 함.  
+3) SErver에서 Client의 요청을 받아 Socket을 만들고, I/O Stream을 만든다.
+4) 통신함  
+5) Socket 닫음. 
+
+<h5>Server</h5>
+```java
+ServerSocket serverSocket = null;
+Socket socket = null;
+PrintWriter writer = null
+BufferedReader reader = null;
+String lineStr;
+
+public MakeServerSocket(){
+  try{
+    serverSocket = new ServerSocket(2000);
+    
+    while(true){
+      socket = serverSocket.accept();
+      System.out.println("Client 요청");
+      
+      writer = new PrintWriter(socket.getOutputStream(), true);
+      reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+      
+      while((lineStr = reader.readLine())!=null){
+        writer.write(lineStr);
+        System.out.println("input: " + lineStr);
+      }
+      writer.close();
+      reader.close();
+      socket.close();
+    }
+  } catch(Exception e){}
+}
+```
+
+<h5>Client</h5>
+```java
+Socket socket = null;
+PrintWriter writer = null;
+BufferedReader reader = null;
+
+public MakeClientSocket(){
+  try{
+    socket = new Socket("localhost", 2000);
+    writer = new PrintWriter(socket.getOutputStream(), true);
+    reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+    
+    String str = null;
+    BufferReader sReader = new BufferedReader(new BufferedReader(new InputStreamReader(System.in));
+    
+    while((str = sReader.readLine()) != null){
+      write.println(str);
+      System.out.println("output: " + str);
+    }
+    
+    writer.close();
+    reader.close();
+    sReader.close();
+    socket.close();
+  } catch(Exception e){}
+}
+
+```
+
+
 
 
 
@@ -938,6 +1279,11 @@ DB에서 자료를 검색하는 두 가지 방법
 FTS(Full Table Scan) : 테이블을 처음 부터 끝까지 검색하는 방법  
 
 Index Scan : 인덱스를 검색하여 해당 자료의 테이블을 액세스 하는 방법.  
+
+<h2>자바 관련 사이트</h2>
+![5](https://user-images.githubusercontent.com/52438368/71399779-1a6c9780-2668-11ea-9e11-d59e57d1ace0.PNG)
+
+
 
 
 
