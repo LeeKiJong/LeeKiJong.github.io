@@ -2,12 +2,13 @@
 layout: page
 author: LeeKiJong
 title: Study
-Update: 2019-12-17
+Update: 2019-12-25
 permalink: /Study/
 main_nav: true
 comments : true
 ---
-<h2>검색 기능을 사용해서 공부하기</h2>
+<h4>검색 기능을 사용해서 공부하기</h4>
+<hr>
 <h2>스레드(멀티스레드)</h2>
 하나의 프로세스에서 다시 여러 가지 일을 하는 것.  
 Ex) 채팅 프로그램에서 파일 전송과 채팅이 동시에 되는 것.  
