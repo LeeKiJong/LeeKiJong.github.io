@@ -71,6 +71,30 @@ public class BContentCommand implements BCommand {
 ```
 <h3>BDeleteCommand.java</h3>
 ```java
+package com.javalec.spring_mvc_board.command;
+
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.ui.Model;
+
+import com.javalec.spring_mvc_board.dao.BDao;
+
+public class BDeleteCommand implements BCommand {
+
+	@Override
+	public void execute(Model model) {
+		// TODO Auto-generated method stub
+		Map<String, Object> map = model.asMap();
+		HttpServletRequest request = (HttpServletRequest) map.get("request");
+		
+		String bId = request.getParameter("bId");
+		BDao dao = new BDao();
+		dao.delete(bId);
+	}
+
+}
 
 ```
 <h3>BListCommand.java</h3>
@@ -100,14 +124,102 @@ public class BListCommand implements BCommand {
 ```
 <h3>BModifyCommand.java</h3>
 ```java
+package com.javalec.spring_mvc_board.command;
+
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.ui.Model;
+
+import com.javalec.spring_mvc_board.dao.BDao;
+
+public class BModifyCommand implements BCommand {
+
+	@Override
+	public void execute(Model model) {
+		// TODO Auto-generated method stub
+		Map<String, Object> map = model.asMap();
+		HttpServletRequest request = (HttpServletRequest) map.get("request");
+		
+		String bId = request.getParameter("bId");
+		String bName = request.getParameter("bName");
+		String bTitle = request.getParameter("bTitle");
+		String bContent = request.getParameter("bContent");
+		
+		BDao dao = new BDao();
+		dao.modify(bId, bName, bTitle, bContent);
+	
+	}
+
+}
 
 ```
 <h3>BReplyCommand.java</h3>
 ```java
+package com.javalec.spring_mvc_board.command;
+
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.ui.Model;
+
+import com.javalec.spring_mvc_board.dao.BDao;
+
+public class BReplyCommand implements BCommand {
+
+	@Override
+	public void execute(Model model) {
+		// TODO Auto-generated method stub
+		Map<String, Object> map = model.asMap();
+		HttpServletRequest request = (HttpServletRequest) map.get("request");
+	
+		String bId = request.getParameter("bId");
+		String bName = request.getParameter("bName");
+		String bTitle = request.getParameter("bTitle");
+		String bContent = request.getParameter("bContent");
+		String bGroup = request.getParameter("bGroup");
+		String bStep = request.getParameter("bStep");
+		String bIndent = request.getParameter("bIndent");
+		
+		BDao dao =new BDao();
+		dao.reply(bId, bName, bTitle, bContent, bGroup, bStep, bIndent);
+	}
+
+}
 
 ```
 <h3>BReplyViewCommand.java</h3>
 ```java
+package com.javalec.spring_mvc_board.command;
+
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.ui.Model;
+
+import com.javalec.spring_mvc_board.dao.BDao;
+import com.javalec.spring_mvc_board.dto.BDto;
+
+public class BReplyViewCommand implements BCommand {
+
+	@Override
+	public void execute(Model model) {
+		// TODO Auto-generated method stub
+		Map<String, Object> map = model.asMap();
+		HttpServletRequest request = (HttpServletRequest) map.get("request");
+	
+		String bId = request.getParameter("bId");
+		
+		BDao dao =new BDao();
+		BDto dto = dao.reply_view(bId);
+		
+		model.addAttribute("reply_view", dto);
+	}
+
+}
 
 ```
 <h3>BWriteCommand.java</h3>
@@ -163,14 +275,18 @@ import com.javalec.spring_mvc_board.command.BReplyCommand;
 import com.javalec.spring_mvc_board.command.BReplyViewCommand;
 import com.javalec.spring_mvc_board.command.BWriteCommand;
 
+/**
+ * Servlet implementation class BoardFrontController
+ */
+
 @Controller
 public class BController {
-	
-	BCommand command;
+
+	BCommand command = null;
 	
 	@RequestMapping("/list")
 	public String list(Model model) {
-		
+		System.out.println("list()");
 		command = new BListCommand();
 		command.execute(model);
 		
@@ -179,12 +295,15 @@ public class BController {
 	
 	@RequestMapping("/write_view")
 	public String write_view(Model model) {
+		System.out.println("write_view()");
 		
 		return "write_view";
 	}
 	
 	@RequestMapping("/write")
 	public String write(HttpServletRequest request, Model model) {
+		System.out.println("write()");
+		
 		model.addAttribute("request", request);
 		command = new BWriteCommand();
 		command.execute(model);
@@ -193,46 +312,53 @@ public class BController {
 	}
 	
 	@RequestMapping("/content_view")
-	public String content_view(HttpServletRequest request, Model model) {
+	public String content_view(HttpServletRequest request, Model model){
+		System.out.println("content_view()");
 		
 		model.addAttribute("request", request);
 		command = new BContentCommand();
 		command.execute(model);
+		
 		return "content_view";
 	}
 	
-	@RequestMapping(method=RequestMethod.POST, value = "/modufy")
-	public String modify(HttpServletRequest request, Model model) {
+	@RequestMapping(value="/modify", method=RequestMethod.POST )
+	public String modify(HttpServletRequest request, Model model){
+		System.out.println("modify()");
+		
 		model.addAttribute("request", request);
 		command = new BModifyCommand();
 		command.execute(model);
 		
 		return "redirect:list";
-		
 	}
 	
 	@RequestMapping("/reply_view")
-	public String reply_view(HttpServletRequest request, Model model) {
+	public String reply_view(HttpServletRequest request, Model model){
+		System.out.println("reply_view()");
 		
 		model.addAttribute("request", request);
 		command = new BReplyViewCommand();
 		command.execute(model);
 		
 		return "reply_view";
-		
 	}
 	
 	@RequestMapping("/reply")
 	public String reply(HttpServletRequest request, Model model) {
+		System.out.println("reply()");
 		
-		model.addAttribute("request", request);
+		model.addAttribute("request", request);		
 		command = new BReplyCommand();
 		command.execute(model);
+		
 		return "redirect:list";
 	}
 	
 	@RequestMapping("/delete")
 	public String delete(HttpServletRequest request, Model model) {
+		System.out.println("delete()");
+		
 		model.addAttribute("request", request);
 		command = new BDeleteCommand();
 		command.execute(model);
@@ -241,13 +367,357 @@ public class BController {
 	}
 	
 }
-
-
 ```
 <hr>
 <h2>com.javalec.spring_mvc_board.dao</h2>
 <h3>BDao.java</h3>
 ```java
+package com.javalec.spring_mvc_board.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Timestamp;
+import java.util.ArrayList;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.sql.DataSource;
+
+import com.javalec.spring_mvc_board.dto.BDto;
+
+public class BDao {
+
+	DataSource dataSource;
+	
+	public BDao() {
+		// TODO Auto-generated constructor stub
+		
+		try {
+			Context context = new InitialContext();
+			dataSource = (DataSource) context.lookup("java:comp/env/jdbc/Oracle11g");
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+	}
+	
+	public void write(String bName, String bTitle, String bContent) {
+		// TODO Auto-generated method stub
+		
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		
+		try {
+			connection = dataSource.getConnection();
+			String query = "insert into mvc_board (bId, bName, bTitle, bContent, bHit, bGroup, bStep, bIndent) values (mvc_board_seq.nextval, ?, ?, ?, 0, mvc_board_seq.currval, 0, 0 )";
+			preparedStatement = connection.prepareStatement(query);
+			preparedStatement.setString(1, bName);
+			preparedStatement.setString(2, bTitle);
+			preparedStatement.setString(3, bContent);
+			int rn = preparedStatement.executeUpdate();
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			try {
+				if(preparedStatement != null) preparedStatement.close();
+				if(connection != null) connection.close();
+			} catch (Exception e2) {
+				// TODO: handle exception
+				e2.printStackTrace();
+			}
+		}
+		
+	}
+	
+	public ArrayList<BDto> list() {
+		
+		ArrayList<BDto> dtos = new ArrayList<BDto>();
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
+		
+		try {
+			connection = dataSource.getConnection();
+			
+			String query = "select bId, bName, bTitle, bContent, bDate, bHit, bGroup, bStep, bIndent from mvc_board order by bGroup desc, bStep asc";
+			preparedStatement = connection.prepareStatement(query);
+			resultSet = preparedStatement.executeQuery();
+			
+			while (resultSet.next()) {
+				int bId = resultSet.getInt("bId");
+				String bName = resultSet.getString("bName");
+				String bTitle = resultSet.getString("bTitle");
+				String bContent = resultSet.getString("bContent");
+				Timestamp bDate = resultSet.getTimestamp("bDate");
+				int bHit = resultSet.getInt("bHit");
+				int bGroup = resultSet.getInt("bGroup");
+				int bStep = resultSet.getInt("bStep");
+				int bIndent = resultSet.getInt("bIndent");
+				
+				BDto dto = new BDto(bId, bName, bTitle, bContent, bDate, bHit, bGroup, bStep, bIndent);
+				dtos.add(dto);
+			}
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			try {
+				if(resultSet != null) resultSet.close();
+				if(preparedStatement != null) preparedStatement.close();
+				if(connection != null) connection.close();
+			} catch (Exception e2) {
+				// TODO: handle exception
+				e2.printStackTrace();
+			}
+		}
+		return dtos;
+	}
+	
+	public BDto contentView(String strID) {
+		// TODO Auto-generated method stub
+		
+		upHit(strID);
+		
+		BDto dto = null;
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
+		
+		try {
+			
+			connection = dataSource.getConnection();
+			
+			String query = "select * from mvc_board where bId = ?";
+			preparedStatement = connection.prepareStatement(query);
+			preparedStatement.setInt(1, Integer.parseInt(strID));
+			resultSet = preparedStatement.executeQuery();
+			
+			if(resultSet.next()) {
+				int bId = resultSet.getInt("bId");
+				String bName = resultSet.getString("bName");
+				String bTitle = resultSet.getString("bTitle");
+				String bContent = resultSet.getString("bContent");
+				Timestamp bDate = resultSet.getTimestamp("bDate");
+				int bHit = resultSet.getInt("bHit");
+				int bGroup = resultSet.getInt("bGroup");
+				int bStep = resultSet.getInt("bStep");
+				int bIndent = resultSet.getInt("bIndent");
+				
+				dto = new BDto(bId, bName, bTitle, bContent, bDate, bHit, bGroup, bStep, bIndent);
+			}
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			try {
+				if(resultSet != null) resultSet.close();
+				if(preparedStatement != null) preparedStatement.close();
+				if(connection != null) connection.close();
+			} catch (Exception e2) {
+				// TODO: handle exception
+				e2.printStackTrace();
+			}
+		}
+		return dto;
+	}
+	
+	public void modify(String bId, String bName, String bTitle, String bContent) {
+		// TODO Auto-generated method stub
+		
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		
+		try {
+			connection = dataSource.getConnection();
+			
+			String query = "update mvc_board set bName = ?, bTitle = ?, bContent = ? where bId = ?";
+			preparedStatement = connection.prepareStatement(query);
+			preparedStatement.setString(1, bName);
+			preparedStatement.setString(2, bTitle);
+			preparedStatement.setString(3, bContent);
+			preparedStatement.setInt(4, Integer.parseInt(bId));
+			int rn = preparedStatement.executeUpdate();
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			try {
+				if(preparedStatement != null) preparedStatement.close();
+				if(connection != null) connection.close();
+			} catch (Exception e2) {
+				// TODO: handle exception
+				e2.printStackTrace();
+			}
+		}
+	}
+	
+	public void delete(String bId) {
+		// TODO Auto-generated method stub
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		try {
+			
+			connection = dataSource.getConnection();
+			String query = "delete from mvc_board where bId = ?";
+			preparedStatement = connection.prepareStatement(query);
+			preparedStatement.setInt(1, Integer.parseInt(bId));
+			int rn = preparedStatement.executeUpdate();
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			try {
+				if(preparedStatement != null) preparedStatement.close();
+				if(connection != null) connection.close();
+			} catch (Exception e2) {
+				// TODO: handle exception
+				e2.printStackTrace();
+			}
+		}
+	}
+	
+	public BDto reply_view(String strId) {
+		// TODO Auto-generated method stub
+		BDto dto = null;
+		
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
+		try {
+			
+			connection = dataSource.getConnection();
+			String query = "select * from mvc_board where bId = ?";
+			preparedStatement = connection.prepareStatement(query);
+			preparedStatement.setInt(1, Integer.parseInt(strId));
+			resultSet = preparedStatement.executeQuery();
+			
+			if(resultSet.next()) {
+				int bId = resultSet.getInt("bId");
+				String bName = resultSet.getString("bName");
+				String bTitle = resultSet.getString("bTitle");
+				String bContent = resultSet.getString("bContent");
+				Timestamp bDate = resultSet.getTimestamp("bDate");
+				int bHit = resultSet.getInt("bHit");
+				int bGroup = resultSet.getInt("bGroup");
+				int bStep = resultSet.getInt("bStep");
+				int bIndent = resultSet.getInt("bIndent");
+				
+				dto = new BDto(bId, bName, bTitle, bContent, bDate, bHit, bGroup, bStep, bIndent);
+			}
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			try {
+				if(resultSet != null) resultSet.close();
+				if(preparedStatement != null) preparedStatement.close();
+				if(connection != null) connection.close();
+			} catch (Exception e2) {
+				// TODO: handle exception
+				e2.printStackTrace();
+			}
+		}
+		
+		return dto;
+	}
+	
+	public void reply(String bId, String bName, String bTitle, String bContent, String bGroup, String bStep, String bIndent) {
+		// TODO Auto-generated method stub
+		
+		replyShape(bGroup, bStep);
+		
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		
+		try {
+			connection = dataSource.getConnection();
+			String query = "insert into mvc_board (bId, bName, bTitle, bContent, bGroup, bStep, bIndent) values (mvc_board_seq.nextval, ?, ?, ?, ?, ?, ?)";
+			preparedStatement = connection.prepareStatement(query);
+			
+			preparedStatement.setString(1, bName);
+			preparedStatement.setString(2, bTitle);
+			preparedStatement.setString(3, bContent);
+			preparedStatement.setInt(4, Integer.parseInt(bGroup));
+			preparedStatement.setInt(5, Integer.parseInt(bStep) + 1);
+			preparedStatement.setInt(6, Integer.parseInt(bIndent) + 1);
+			
+			int rn = preparedStatement.executeUpdate();
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			try {
+				if(preparedStatement != null) preparedStatement.close();
+				if(connection != null) connection.close();
+			} catch (Exception e2) {
+				// TODO: handle exception
+				e2.printStackTrace();
+			}
+		}
+		
+	}
+	
+	private void replyShape(String strGroup, String strStep) {
+		// TODO Auto-generated method stub
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		
+		try {
+			connection = dataSource.getConnection();
+			String query = "update mvc_board set bStep = bStep + 1 where bGroup = ? and bStep > ?";
+			preparedStatement = connection.prepareStatement(query);
+			preparedStatement.setInt(1, Integer.parseInt(strGroup));
+			preparedStatement.setInt(2, Integer.parseInt(strStep));
+			
+			int rn = preparedStatement.executeUpdate();
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			try {
+				if(preparedStatement != null) preparedStatement.close();
+				if(connection != null) connection.close();
+			} catch (Exception e2) {
+				// TODO: handle exception
+				e2.printStackTrace();
+			}
+		}
+	}
+	
+	private void upHit( String bId) {
+		// TODO Auto-generated method stub
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		
+		try {
+			connection = dataSource.getConnection();
+			String query = "update mvc_board set bHit = bHit + 1 where bId = ?";
+			preparedStatement = connection.prepareStatement(query);
+			preparedStatement.setString(1, bId);
+			
+			int rn = preparedStatement.executeUpdate();
+					
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			try {
+				if(preparedStatement != null) preparedStatement.close();
+				if(connection != null) connection.close();
+			} catch (Exception e2) {
+				// TODO: handle exception
+				e2.printStackTrace();
+			}
+		}
+	}
+}
 
 ```
 <hr>
@@ -434,7 +904,51 @@ public class BDto {
 ```
 <h3>reply_view.jsp</h3>
 ```html
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
 
+	<table width="500" cellpadding="0" cellspacing="0" border="1">
+		<form action="reply" method="post">
+			<input type="hidden" name="bId" value="${reply_view.bId}">
+			<input type="hidden" name="bGroup" value="${reply_view.bGroup}">
+			<input type="hidden" name="bStep" value="${reply_view.bStep}">
+			<input type="hidden" name="bIndent" value="${reply_view.bIndent}">
+			<tr>
+				<td> 번호 </td>
+				<td> ${reply_view.bId} </td>
+			</tr>
+			<tr>
+				<td> 히트 </td>
+				<td> ${reply_view.bHit} </td>
+			</tr>
+			<tr>
+				<td> 이름 </td>
+				<td> <input type="text" name="bName" value="${reply_view.bName}"></td>
+			</tr>
+			<tr>
+				<td> 제목 </td>
+				<td> <input type="text" name="bTitle" value="${reply_view.bTitle}"></td>
+			</tr>
+			<tr>
+				<td> 내용 </td>
+				<td> <textarea rows="10"  name="bContent">${reply_view.bContent}</textarea></td>
+			</tr>
+			<tr>
+				<td colspan="2"><input type="submit" value="답변"> <a href="list" >목록</a></td>
+			</tr>
+		</form>
+	</table>
+	
+</body>
+</html>
 ```
 <h3>write_view.jsp</h3>
 ```html
