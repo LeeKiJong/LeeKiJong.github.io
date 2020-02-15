@@ -3,7 +3,7 @@ layout: post
 title:  "MVC 패턴을 적용한 Spring 게시판"
 date:   2020-02-11
 author: LeeKiJong
-categories: spring
+categories: Programming
 comments : true
 tags: JAVA Spring Framework
 cover:  "/assets/java.jpg"
