@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "programming"
-permalink: /programming/
+title: "Programming"
+permalink: /Programming/
 main_nav: true
 ---
 {% for category in site.categories %}
