@@ -36,21 +36,21 @@ Vote Program - P4
 
 <hr>
 <h2>P1-HomePage_DB</h2>
-DB와 php를 사용한 홈페이지 제작입니다.
+DB와 php를 사용한 홈페이지 제작입니다.  
 [https://github.com/LeeKiJong/P1-HomePage_DB](https://github.com/LeeKiJong/P1-HomePage_DB)
 <hr>
 <h2>P2-Chatting_server</h2>
-소켓을 이용한 채팅 서버 구현입니다.
+소켓을 이용한 채팅 서버 구현입니다.  
 [https://github.com/LeeKiJong/P2-Chatting_server](https://github.com/LeeKiJong/P2-Chatting_server)
 <hr>
 <h2>P3-P2P_ChordNode</h2>
-ChordNode를 이용한 P2P 네트워크 서비스 입니다.
+ChordNode를 이용한 P2P 네트워크 서비스 입니다.  
 [https://github.com/LeeKiJong/P3-P2P_ChordNode](https://github.com/LeeKiJong/P3-P2P_ChordNode)
 <hr>
 <h2>P4-BlockChain_Vote</h2>
-Flask기반의 Python 블록체인 투표 구현입니다.
+Flask기반의 Python 블록체인 투표 구현입니다.  
 [https://github.com/LeeKiJong/P4-BlockChain_Vote](https://github.com/LeeKiJong/P4-BlockChain_Vote)
 <hr>
 <h2>P5-MVC_JSP_HomePage</h2>
-MVC 패턴을 적용한 JSP, Servlet 홈페이지 입니다.
+MVC 패턴을 적용한 JSP, Servlet 홈페이지 입니다.  
 [https://github.com/LeeKiJong/P5-MVC_JSP_HomePage](https://github.com/LeeKiJong/P5-MVC_JSP_HomePage)
