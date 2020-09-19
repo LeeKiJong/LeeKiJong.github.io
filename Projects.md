@@ -64,5 +64,5 @@ MVC 패턴을 적용한 JSP, Servlet 홈페이지 입니다.
 [https://github.com/LeeKiJong/P5-MVC_JSP_HomePage](https://github.com/LeeKiJong/P5-MVC_JSP_HomePage)
 
 <h2>P7-Online_Shopping_Site</h2>
-Spring, Mybatis를 사용한 쇼핑몰 사이트입니다.
+Spring, Mybatis를 사용한 쇼핑몰 사이트입니다.  
 [https://github.com/LeeKiJong/P7-Online_Shopping_Site](https://github.com/LeeKiJong/P7-Online_Shopping_Site)
