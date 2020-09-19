@@ -9,23 +9,27 @@ comments : true
 ---
 <h2>사용 언어</h2>
 C - P2, P3  
-DB(SQL) - P1, P5  
+DB(SQL) - P1, P5, P6, P7  
 PHP - P1  
-HTML - P1, P4, P5  
-Python - P4
-JAVA - P5
-JAVASCRIPT - P5
-JSP - P5
-Servlet - P5
+HTML - P1, P4, P5, P7  
+Python - P4  
+JAVA - P5, P6, P7  
+JAVASCRIPT - P5, P7  
+JSP - P5, P6, P7  
+Servlet - P5, P6, P7  
+AJax - P7  
+jQuery - P7  
+
 
 <h2>사용 프로그램</h2>
 Flask - P4  
 Apmsetup(Mysql) - P1  
-Apache-Tomcat - P5
-SQL Developer(Oracle DB) - P5
+Apache-Tomcat - P5, P6, P7  
+SQL Developer(Oracle DB) - P5, P7  
 
 <h2>주제</h2>
-HomePage - P1, P4, P5  
+HomePage - P1, P4, P5, P6, P7  
+Shopping - P7  
 ChordNode - P3  
 P2P - P3  
 Network - P3  
@@ -33,6 +37,10 @@ Socket - P2
 Chatting_Server - P2  
 Blockchain - P4  
 Vote Program - P4  
+
+<h2>프레임워크</h2>
+Spring - P6, P7  
+Mybatis -P7  
 
 <hr>
 <h2>P1-HomePage_DB</h2>
@@ -54,3 +62,7 @@ Flask기반의 Python 블록체인 투표 구현입니다.
 <h2>P5-MVC_JSP_HomePage</h2>
 MVC 패턴을 적용한 JSP, Servlet 홈페이지 입니다.  
 [https://github.com/LeeKiJong/P5-MVC_JSP_HomePage](https://github.com/LeeKiJong/P5-MVC_JSP_HomePage)
+
+<h2>P7-Online_Shopping_Site</h2>
+Spring, Mybatis를 사용한 쇼핑몰 사이트입니다.
+[https://github.com/LeeKiJong/P7-Online_Shopping_Site](https://github.com/LeeKiJong/P7-Online_Shopping_Site)
