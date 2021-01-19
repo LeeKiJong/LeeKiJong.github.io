@@ -67,7 +67,9 @@ pagination:
       <i class="fa fa-angle-double-left fa-stack-1x fa-inverse"></i>
     </span>
 		{% endif %}
-		
+
+		{% if paginator.next_page %}
+	
 		{% else %}
 		<span class="fa-stack fa-lg">
       <i class="fa fa-square fa-stack-2x"></i>
